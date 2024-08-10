@@ -187,7 +187,8 @@
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <input type="text" name="phone" class="form-control" placeholder="Nomor HP"/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:100px" required></textarea>
-                    <div class="h-captcha" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc" data-callback="callback"></div><br/>
+                    <div class="h-captcha" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc" data-callback="callback"></div>
+                    <p align="center" style="color: #ff0000;"></p>Wajib klik kotak aku manusia<br/>
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                 </form>
             </div>
@@ -197,9 +198,8 @@
         function callback() {
           const submitButton = document.getElementById("submit-button");
           submitButton.removeAttribute("disabled");
-          {alert("Klik kotak aku manusia")}
         }
-      </script>
+    </script>
     <script src="https://cdn.rifki.xyz/js/jquery.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.form.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.stellar.min.js"></script>
