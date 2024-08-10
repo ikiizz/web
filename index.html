@@ -182,17 +182,22 @@
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" data-callback="onSubmit" name="kontak">
+                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <input type="text" name="phone" class="form-control" placeholder="Nomor HP"/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:100px" required></textarea>
                     <div class="h-captcha" style="margin: 0 auto;display: table;" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc"></div><br/>
-                    <button id="submit" type="submit" name="submit" class="btn btn-glance">Kirim pesan</button>
+                    <button id="submit" type="submit" name="submit" class="btn btn-glance h-captcha" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc" data-callback="onSubmit">Kirim pesan</button>
                 </form>
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function onSubmit(token) {
+          document.getElementById('kontak').submit();
+        }
+      </script>
     <script src="https://cdn.rifki.xyz/js/jquery.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.form.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.stellar.min.js"></script>
