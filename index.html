@@ -12,7 +12,7 @@
     <meta name="author" content="Muhamad Rifki Sumarna"/>
     <meta name="google-adsense-account" content="ca-pub-3482928871524341"/>
     <link rel="dns-prefetch" href="https://cdn.rifki.xyz"/>
-    <link rel="dns-prefetch" href="https://www.google.com"/>
+    <link rel="dns-prefetch" href="https://js.hcaptcha.com"/>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com"/>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
@@ -49,21 +49,6 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482928871524341" crossorigin="anonymous"></script>
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <script>
-        function validateForm() {
-            var captcha = document.querySelector('.h-captcha');
-            var response = captcha.getAttribute('data-h-captcha-response');
-            var errorElement = document.getElementById('captcha-error');
-            
-            if (!response) {
-                errorElement.textContent = "Harap klik kotak aku manusia";
-                return false; //Prevent user from submitting your form...
-            }
-        
-            errorElement.textContent = ''; //Clear any previous error...
-            return true; //Allow form submission...
-        }
-        </script>
     <script>window.addEventListener(`contextmenu`, (e) => e.preventDefault());</script>
 </head>
 <body style="user-select: none;">
@@ -197,13 +182,12 @@
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" onsubmit="return validateForm()" name="kontak">
+                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" data-callback="onSubmit" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <input type="text" name="phone" class="form-control" placeholder="Nomor HP"/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:100px" required></textarea>
-                    <div class="h-captcha" style="margin: 0 auto;display: table;" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc"></div>
-                    <p align="center" id="captcha-error" style="color: red;"></p><br/>
+                    <div class="h-captcha" style="margin: 0 auto;display: table;" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc"></div><br/>
                     <button id="submit" type="submit" name="submit" class="btn btn-glance">Kirim pesan</button>
                 </form>
             </div>
