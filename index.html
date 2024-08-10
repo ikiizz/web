@@ -52,7 +52,7 @@
     <script>
         function validateForm() {
             var captcha = document.querySelector('.h-captcha');
-            var response = captcha.getAttribute('h-captcha-response');
+            var response = captcha.getAttribute('data-h-captcha-response');
             var errorElement = document.getElementById('captcha-error');
             
             if (!response) {
@@ -202,7 +202,8 @@
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <input type="text" name="phone" class="form-control" placeholder="Nomor HP"/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:100px" required></textarea>
-                    <div class="h-captcha" style="margin: 0 auto;display: table;" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc"></div><p align="center" id="captcha-error" style="color: red;"></p><br/>
+                    <div class="h-captcha" style="margin: 0 auto;display: table;" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc"></div>
+                    <p align="center" id="captcha-error" style="color: red;"></p><br/>
                     <button id="submit" type="submit" name="submit" class="btn btn-glance">Kirim pesan</button>
                 </form>
             </div>
