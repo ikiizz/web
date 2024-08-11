@@ -1,24 +1,12 @@
-            - name: generate-sitemap
+            - name: SiteMap.Xml-Generator
   # You may pin to the exact commit or the version.
-  # uses: cicirello/generate-sitemap@63643192a20862580b2e628ce0e553a8907e9ee9
-  uses: cicirello/generate-sitemap@v1.10.0
+  # uses: FullStackIndie/sitemap-generator@1284c0697a5496c7f58a56a53706333fc0f334fb
+  uses: FullStackIndie/sitemap-generator@v1.4.1
   with:
-    # The path to the root of the website
-    path-to-root: # optional, default is .
-    # The url of your webpage
-    base-url-path: # optional, default is https://web.address.of.your.nifty.website/
-    # Indicates whether to include html files in the sitemap.
-    include-html: # optional, default is true
-    # Indicates whether to include pdf files in the sitemap.
-    include-pdf: # optional, default is true
-    # Indicates if sitemap should be formatted in xml.
-    sitemap-format: # optional, default is xml
-    # Space separated list of additional file extensions to include in sitemap.
-    additional-extensions: # optional, default is 
-    # Enables dropping .html from urls in sitemap.
-    drop-html-extension: # optional
-    # Pass true to include only the date without the time in XML sitemaps; and false to include full date and time.
-    date-only: # optional
-    # Space separated list of paths to exclude from the sitemap.
-    exclude-paths: # optional, default is 
+    # Your website domain to crawl. Must start with http:// or https://
+    url: https://www.rifki.xyz
+    # Should the Sitemap be cached to be used in another job.
+    cache: # optional, default is false
+    # The cache key to upload artifact. You will use the same key to download the artifact. Default: sitemap
+    cache-key: # optional, default is sitemap
           
