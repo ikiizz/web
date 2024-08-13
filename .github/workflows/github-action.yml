@@ -27,5 +27,5 @@ jobs:
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add sitemap.xml
           git commit -m "Automated sitemap update" sitemap.xml
-          git push origin main
+          git push
         fi
