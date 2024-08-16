@@ -48,8 +48,17 @@
         })(window, document, "clarity", "script", "nkl3bo64d2");
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482928871524341" crossorigin="anonymous"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>window.addEventListener(`contextmenu`, (e) => e.preventDefault());</script>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+    <script>
+    window.onload = function() {
+        var recaptcha = document.forms["kontak"]["g-recaptcha-response"];
+        recaptcha.required = true;
+        recaptcha.oninvalid = function(e) {
+    alert("Harap lengkapi data anda dan klik kotak Saya bukan robot");
+    }
+   }
+  </script>
+<script>window.addEventListener(`contextmenu`, (e) => e.preventDefault());</script>
 </head>
 <body style="user-select: none;">
     <!-- Google Tag Manager (noscript) -->
@@ -192,15 +201,6 @@
             </div>
         </div>
     </div>
-    <script>
-    var rcres = grecaptcha.getResponse();
-    if(rcres.length){
-        grecaptcha.reset();
-        showHideMsg("Pesan berhasil dikirim","success");
-    }else{
-        showHideMsg("Harap klik Saya bukan robot","error");
-        }
-    </script>
     <script src="https://cdn.rifki.xyz/js/jquery.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.form.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.stellar.min.js"></script>
