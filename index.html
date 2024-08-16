@@ -12,7 +12,7 @@
     <meta name="author" content="Muhamad Rifki Sumarna"/>
     <meta name="google-adsense-account" content="ca-pub-3482928871524341"/>
     <link rel="dns-prefetch" href="https://cdn.rifki.xyz"/>
-    <link rel="dns-prefetch" href="https://js.hcaptcha.com"/>
+    <link rel="dns-prefetch" href="https://www.google.com"/>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com"/>
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com"/>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com"/>
@@ -49,11 +49,6 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482928871524341" crossorigin="anonymous"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        function onSubmit(token) {
-          document.getElementById("kontak").submit();
-        }
-    </script>
     <script>window.addEventListener(`contextmenu`, (e) => e.preventDefault());</script>
 </head>
 <body style="user-select: none;">
@@ -190,8 +185,9 @@
                 <form class="contact-bg contact-form" id="ajaxForm" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
-                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea><br/>
-                    <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn g-recaptcha" data-sitekey="6LcM8ycqAAAAACsP6fXRM7R7K56XdOg0sM3Tlz9f" data-size="invisible" data-callback="onSubmit" data-action="LOGIN">Kirim pesan</button>
+                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea>
+                    <div class="g-recaptcha" style="margin: 0 auto; display: table;" data-sitekey="6Le77R4qAAAAAPH0KLrhtezEv_D0d03LFxIisfaL" data-action="LOGIN" data-validate="{required:true}"></div><br/>
+                    <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                 </form>
             </div>
         </div>
@@ -214,7 +210,7 @@
         }).done(function() {
             alert('Pesan anda berhasil dikirim')
         }).fail(function() {
-            alert('Pesan anda gagal dikirim karna data yang anda masukkan tidak lengkap')
+            alert('Pesan anda gagal dikirim')
         });
         });
     </script>
