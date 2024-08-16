@@ -48,7 +48,12 @@
         })(window, document, "clarity", "script", "nkl3bo64d2");
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3482928871524341" crossorigin="anonymous"></script>
-    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script>
+        function onSubmit(token) {
+          document.getElementById("kontak").submit();
+        }
+    </script>
     <script>window.addEventListener(`contextmenu`, (e) => e.preventDefault());</script>
 </head>
 <body style="user-select: none;">
@@ -182,22 +187,36 @@
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
+                <form class="contact-bg contact-form" id="ajaxForm" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
-                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:100px" required></textarea>
-                    <div class="h-captcha" style="margin: 0 auto;display: table" data-sitekey="7bfe48a0-11aa-4ffa-9338-8bf8124610cc" data-callback="callback"></div>
-                    <p align="center" style="color: #ff0000;">Wajib klik kotak aku manusia</p><br/>
-                    <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
+                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea><br/>
+                    <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn g-recaptcha" data-sitekey="6LcM8ycqAAAAACsP6fXRM7R7K56XdOg0sM3Tlz9f" data-size="invisible" data-callback="onSubmit" data-action="LOGIN">Kirim pesan</button>
                 </form>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        function callback() {
-          const submitButton = document.getElementById("submit-button");
-          submitButton.removeAttribute("disabled");
-        }
+    <script>
+        $("#ajaxForm").submit(function(e){
+        e.preventDefault();
+        var action = $(this).attr("action");
+            $.ajax({
+            type: "POST",
+            url: action,
+            crossDomain: true,
+            data: new FormData(this),
+            dataType: "json",
+            processData: false,
+            contentType: false,
+            headers: {
+            "Accept": "application/json"
+            }
+        }).done(function() {
+            alert('Pesan anda berhasil dikirim')
+        }).fail(function() {
+            alert('Pesan anda gagal dikirim karna data yang anda masukkan tidak lengkap')
+        });
+        });
     </script>
     <script src="https://cdn.rifki.xyz/js/jquery.js"></script>
     <script src="https://cdn.rifki.xyz/js/jquery.form.js"></script>
