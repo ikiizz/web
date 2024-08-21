@@ -402,5 +402,15 @@ $(function(){
   }); /* https://idangero.us/swiper/api/ */
 });
 </script>
+<script>
+  window.addEventListener("online", onFunction);
+  window.addEventListener("offline", offFunction);
+    function onFunction() {
+      alert ("✅ Anda terhubung ke Internet");
+    }
+    function offFunction() {
+      alert ("❌ Koneksi Internet terputus");
+    }
+</script>
 </body>
 </html>

@@ -211,5 +211,15 @@
     <script src="https://cdn.rifki.xyz/js/plugins.js"></script>
     <script src="https://cdn.rifki.xyz/js/aos.js"></script>
     <script src="https://cdn.rifki.xyz/js/custom.js"></script>
+    <script>
+      window.addEventListener("online", onFunction);
+      window.addEventListener("offline", offFunction);
+    function onFunction() {
+      alert ("✅ Anda terhubung ke Internet");
+    }
+    function offFunction() {
+      alert ("❌ Koneksi Internet terputus");
+    }
+  </script>
 </body>
 </html>
