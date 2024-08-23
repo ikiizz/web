@@ -15,16 +15,17 @@
     <link rel="prefetch" href="https://www.rifki.xyz/galeri/"/>
     <link rel="preconnect" href="https://cdn.rifki.xyz"/>
     <link rel="preconnect" href="https://www.google.com"/>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
     <link rel="preconnect" href="https://pagead2.googlesyndication.com"/>
     <link rel="preconnect" href="https://www.googletagmanager.com"/>
     <link rel="preconnect" href="https://www.clarity.ms"/>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com"/>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
     <link rel="icon" sizes="32x32" href="https://cdn.rifki.xyz/img/favicon.ico" type="image/x-icon"/>
     <link href="https://cdn.rifki.xyz/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="https://cdn.rifki.xyz/css/animate.min.css" rel="stylesheet"/>
     <link href="https://cdn.rifki.xyz/css/aos.css" rel="stylesheet"/>
     <link href="https://cdn.rifki.xyz/css/style.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -75,8 +76,8 @@
     <header class="navbar-fixed-top">
         <nav>
             <ul>
-                <li><a href="/"><i class="fa-solid fa-house"></i> Beranda</a></li>
-                <li><a href="galeri"><i class="fa-regular fa-images"></i> Galeri foto</a></li>
+                <li><a href="/"><i class="ri-home-4-line"></i> Beranda</a></li>
+                <li><a href="galeri"><i class="ri-gallery-line"></i> Galeri foto</a></li>
             </ul>
         </nav>
     </header>
@@ -184,22 +185,44 @@
 
                 <h3>Media sosial</h3>
                 <ul class="social">
-                    <li><a href="https://instagram.com/rifkisumarna05" target="_blank"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="https://x.com/rifkiizz" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="https://linkedin.com/in/rifkisumarna05" target="_blank"><i class="fa-brands fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/ikiizz" target="_blank"><i class="fa-brands fa-github"></i></a></li>
+                    <li><a href="https://instagram.com/rifkisumarna05" target="_blank"><i class="ri-instagram-line"></i></a></li>
+                    <li><a href="https://x.com/rifkiizz" target="_blank"><i class="ri-twitter-x-line"></i></a></li>
+                    <li><a href="https://linkedin.com/in/rifkisumarna05" target="_blank"><i class="ri-linkedin-box-fill"></i></a></li>
+                    <li><a href="https://github.com/ikiizz" target="_blank"><i class="ri-github-fill"></i></a></li>
                 </ul>
                 <div class="clearfix"></div>
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
+                <form class="contact-bg contact-form" id="ajaxForm" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea>
                     <div class="g-recaptcha" style="margin: 0 auto; display: table;" data-sitekey="6Le77R4qAAAAAPH0KLrhtezEv_D0d03LFxIisfaL" data-action="LOGIN"></div><br/>
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                 </form>
+              <script>
+                $("#ajaxForm").submit(function(e){
+                e.preventDefault();
+                var action = $(this).attr("action");
+                    $.ajax({
+                    type: "POST",
+                    url: action,
+                    crossDomain: true,
+                    data: new FormData(this),
+                    dataType: "json",
+                    processData: false,
+                    contentType: false,
+                    headers: {
+                    "Accept": "application/json"
+                    }
+                }).done(function() {
+                    alert('✅ Pesan terkirim')
+                }).fail(function() {
+                    alert('❌ Gagal mengirim pesan')
+                });
+                });
+              </script>
             </div>
         </div>
     </div>
