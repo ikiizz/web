@@ -12,7 +12,6 @@
     <meta name="author" content="Muhamad Rifki Sumarna"/>
     <meta name="google-site-verification" content="YPtW1kDWOw2DQ0-92km5NocbnD6QApt-6zITVBfUm9A"/>
     <link rel="canonical" href="https://www.rifki.xyz/"/>
-    <link rel="prefetch" href="https://www.rifki.xyz/galeri/"/>
     <link rel="preconnect" href="https://cdn.rifki.xyz"/>
     <link rel="preconnect" href="https://www.google.com"/>
     <link rel="preconnect" href="https://pagead2.googlesyndication.com"/>
@@ -73,14 +72,6 @@
             </div>
         </div>
     </div>
-    <header class="navbar-fixed-top">
-        <nav>
-            <ul>
-                <li><a href="/"><i class="ri-home-4-line"></i> Beranda</a></li>
-                <li><a href="galeri"><i class="ri-gallery-line"></i> Galeri foto</a></li>
-            </ul>
-        </nav>
-    </header>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="disply-table">
@@ -194,35 +185,13 @@
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8" data-aos="fade-up">
-                <form class="contact-bg contact-form" id="ajaxForm" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
+                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea>
                     <div class="g-recaptcha" style="margin: 0 auto; display: table;" data-sitekey="6Le77R4qAAAAAPH0KLrhtezEv_D0d03LFxIisfaL" data-action="LOGIN"></div><br/>
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                 </form>
-              <script>
-                $("#ajaxForm").submit(function(e){
-                e.preventDefault();
-                var action = $(this).attr("action");
-                    $.ajax({
-                    type: "POST",
-                    url: action,
-                    crossDomain: true,
-                    data: new FormData(this),
-                    dataType: "json",
-                    processData: false,
-                    contentType: false,
-                    headers: {
-                    "Accept": "application/json"
-                    }
-                }).done(function() {
-                    alert('✅ Pesan terkirim')
-                }).fail(function() {
-                    alert('❌ Gagal mengirim pesan')
-                });
-                });
-              </script>
             </div>
         </div>
     </div>
