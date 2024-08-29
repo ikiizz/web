@@ -12,7 +12,6 @@
     <meta name="author" content="Muhamad Rifki Sumarna"/>
     <link rel="canonical" href="https://www.rifki.xyz/"/>
     <link rel="preconnect" href="https://cdn.rifki.xyz"/>
-    <link rel="preconnect" href="https://www.google.com"/>
     <link rel="preconnect" href="https://www.googletagmanager.com"/>
     <link rel="preconnect" href="https://www.clarity.ms"/>
     <link rel="preconnect" href="https://cdn.jsdelivr.net"/>
@@ -44,16 +43,6 @@
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
         })(window, document, "clarity", "script", "nkl3bo64d2");
     </script>
-    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
-    <script>
-    window.onload = function() {
-        var recaptcha = document.forms["kontak"]["g-recaptcha-response"];
-        recaptcha.required = true;
-        recaptcha.oninvalid = function(e) {
-    alert("Harap lengkapi data anda dan klik kotak Saya bukan robot");
-    }
-   }
-  </script>
 </head>
 <body style="user-select: none;">
     <!-- Google Tag Manager (noscript) -->
@@ -182,8 +171,7 @@
                 <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
-                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea>
-                    <div class="g-recaptcha" style="margin: 0 auto; display: table;" data-sitekey="6Le77R4qAAAAAPH0KLrhtezEv_D0d03LFxIisfaL" data-action="LOGIN"></div><br/>
+                    <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea><br/>
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                 </form>
             </div>
