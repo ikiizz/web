@@ -641,7 +641,7 @@ fieldset {
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
+                <form id="ajax" class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea><br/>
@@ -651,7 +651,7 @@ fieldset {
         </div>
     </div>
     <script>
-        $("#ajaxForm").submit(function(e){
+        $("#ajax").submit(function(e){
         e.preventDefault();
         var action = $(this).attr("action");
             $.ajax({
