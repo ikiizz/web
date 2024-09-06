@@ -641,42 +641,52 @@ fieldset {
                 <div class="h-50"></div>
             </div>
             <div class="col-md-8">
-                <form class="contact-bg contact-form" action="https://submit-form.com/rIoCpSeLv" method="post" id="ajaxForm" name="kontak">
+                <form class="contact-bg contact-form" id="ajax-form" action="https://submit-form.com/rIoCpSeLv" method="post" name="kontak">
                     <input type="text" name="name" class="form-control" placeholder="Nama lengkap" required/>
                     <input type="email" name="email" class="form-control" placeholder="Email" required/>
                     <textarea name="message" class="form-control" placeholder="Pesan anda" style="height:150px" required></textarea><br/>
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
+                    <p id="ajax-form-status"></p>
                 </form>
             </div>
         </div>
     </div>
-    <script>
-        $("#ajaxForm").submit(function(e){
-        e.preventDefault();
-        var action = $(this).attr("action");
-            $.ajax({
-            type: "POST",
-            url: action,
-            crossDomain: true,
-            data: new FormData(this),
-            dataType: "json",
-            processData: false,
-            contentType: false,
-            headers: {
-            "Accept": "application/json"
-            }
-        }).done(function() {
-            alert('✅ Pesan anda berhasil dikirim')
-        }).fail(function() {
-            alert('❌ Error tidak dapat dikirim')
-        });
-        });
-    </script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.stellar.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+    var form = document.getElementById("ajax-form");
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("ajax-form-status");
+        var data = new FormData(event.target);
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                status.innerHTML = "✅ Pesan anda berhasil dikirim";
+                form.reset()
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                        status.innerHTML = "❌ Error tidak dapat dikirim"
+                    }
+                })
+                }
+            }).catch(error => {
+                status.innerHTML = "❌ Error tidak dapat dikirim"
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 </html>
