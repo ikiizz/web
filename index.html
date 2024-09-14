@@ -22,10 +22,6 @@
 <style>
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
 
-html {
-    scroll-behavior: smooth;
-}
-
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 80px;
@@ -455,21 +451,6 @@ fieldset {
     color: #425BB5;
 }
 
-#topbtn {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  z-index: 99;
-  border: none;
-  outline: none;
-  background-color: #000000;
-  color: #ffffff;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 25%;
-}
-
 @media (max-width: 768px) {
     .timeline-event-copy {
         width: 90%;
@@ -509,7 +490,6 @@ fieldset {
             </div>
         </div>
     </div>
-    <button onclick="topFunction()" id="topbtn" title="Kembali ke atas"><i style="font-size: 20px;" class="ri-arrow-up-line"></i></button>
     <div class="section" id="home" data-stellar-background-ratio="0.5">
         <div class="container">
             <div class="disply-table">
@@ -667,20 +647,6 @@ fieldset {
             });
         }
         form.addEventListener("submit", handleSubmit)
-    </script>
-    <script>
-    window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("topbtn").style.display = "block";
-          } else {
-            document.getElementById("topbtn").style.display = "none";
-          }
-        }
-        function topFunction() {
-          document.body.scrollTop = 0;
-          document.documentElement.scrollTop = 0;
-        }
     </script>
 </body>
 </html>
