@@ -661,21 +661,14 @@ fieldset {
         $('#status').fadeOut();
         $('#preloader').delay(350).fadeOut('slow');
         $('body').delay(350).css({
-            'overflow': 'visible'
+            'overflow': 'auto'
         });
     })
     </script>
-    <script type="text/javascript">
-    (function(){
-        function onReady() {
-            document.body.classList.remove('no-scroll');
-        }
-        if ( document.readyState === 'complete' ) {
-            onReady();
-        } else {
-            document.addEventListener('DOMContentLoaded', onReady);
-        }
-    })();
+    <script>
+    $(window).on("load", function() {
+        document.body.classList.remove('no-scroll');
+    });
     </script>
 </body>
 </html>
