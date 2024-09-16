@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=2"/>
     <meta name="robots" content="index, follow"/>
+    <meta name="revisit-after" content="1 days"/>
     <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon"/>
     <title>Muhamad Rifki Sumarna</title>
     <link rel="canonical" href="https://www.rifki.xyz/"/>
@@ -458,6 +459,10 @@ fieldset {
     color: #425BB5;
 }
 
+.no-scroll {
+   overflow: hidden;
+}
+
 @media (max-width: 768px) {
     .timeline-event-copy {
         width: 90%;
@@ -490,7 +495,7 @@ fieldset {
 }
 </style>
 </head>
-<body>
+<body class="no-scroll">
     <div id="preloader">
         <div id="status">
             <div class="preloader" aria-busy="true" aria-label="loading" role="progressbar"></div>
@@ -660,12 +665,17 @@ fieldset {
         });
     })
     </script>
-    <script>
-        var body = document.getElementsByTagName("body")[0];
-        body.style.overflow = "hidden";
-        setTimeout(function() {
-            body.style.overflow = "";
-        }, 400);
+    <script type="text/javascript">
+    (function(){
+        function onReady() {
+            document.body.classList.remove('no-scroll');
+        }
+        if ( document.readyState === 'complete' ) {
+            onReady();
+        } else {
+            document.addEventListener('DOMContentLoaded', onReady);
+        }
+    })();
     </script>
 </body>
 </html>
