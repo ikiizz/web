@@ -6,9 +6,27 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=2"/>
     <meta name="robots" content="index, follow"/>
     <link rel="icon" href="favicon.ico" sizes="32x32" type="image/x-icon"/>
+    <script>
+        var usrAgent = navigator.userAgent;
+        function detectMobile() 
+        {
+            if(usrAgent.match(/Mobile/i))
+            {
+                return "Mobile";
+            }
+        }
+        var isMobile = detectMobile();
+        if(isMobile)
+        {
+            window.location = "https://mobile.rifki.xyz";
+        }
+        else
+        {
+            window.location = "https://www.rifki.xyz";
+        }
+    </script>
     <title>Muhamad Rifki Sumarna</title>
     <link rel="canonical" href="https://www.rifki.xyz/"/>
-    <link rel="alternate" media="only screen and (max-width: 600px*)" href="https://mobile.rifki.xyz"/>
     <meta name="description" content="Selamat Datang Di Website Rifki"/>
     <meta name="keywords" content="Muhamad Rifki Sumarna"/>
     <meta name="author" content="Muhamad Rifki Sumarna"/>
