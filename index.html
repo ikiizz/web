@@ -58,6 +58,14 @@ h4:before {
     top: 9px;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
@@ -230,16 +238,6 @@ body {
 
 .about-img-div img {
     margin: 0 auto;
-}
-
-.about-border {
-    position: absolute;
-    border: 10px solid #425BB5;
-    width: 400px;
-    height: 400px;
-    top: 40px;
-    left: 50px;
-    z-index: 1
 }
 
 #experience {
@@ -464,6 +462,13 @@ fieldset {
    overflow: hidden;
 }
 
+footer {
+    font-family: 'Lato';
+    font-size: medium;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
 @media (max-width: 768px) {
     .timeline-event-copy {
         width: 90%;
@@ -481,18 +486,6 @@ fieldset {
     .disply-table {
         height: 600px;
     }
-    .about-border {
-        width: 265px;
-    }
-}
-
-@media (max-width: 420px) {
-    nav li {
-        margin: 6px;
-    }
-    nav li a {
-        font-size: 10px;
-    }
 }
 </style>
 </head>
@@ -507,7 +500,7 @@ fieldset {
             <div class="disply-table">
                 <div class="table-cell">
                     <h4>Selamat datang di website</h4>
-                    <h1>Muhamad<br/>Rifki<br/>Sumarna</h1>
+                    <a href="https://www.rifki.xyz/"><h1 style="color: #000000;">Muhamad<br/>Rifki<br/>Sumarna</h1></a>
                 </div>
             </div>
         </div>
@@ -621,10 +614,11 @@ fieldset {
                     <button id="submit-button" type="submit" name="submit" class="btn btn-glance submit-btn">Kirim pesan</button>
                     <p align="center" style="font-size: medium; padding-top: 20px;" id="ajax-form-status"></p>
                 </form>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+              </div>
+          </div>
+      </div>
+    <footer><a href="https://www.rifki.xyz/"><p align="center" style="color: #000000;"><span id="time"></span>‎ ‎ - ‎ ‎<span id="date"></span></p></a></footer>
+<script src="script.js"></script>
     <script>
     var form = document.getElementById("ajax-form");
     async function handleSubmit(event) {
@@ -655,6 +649,30 @@ fieldset {
             });
         }
         form.addEventListener("submit", handleSubmit)
+    </script>
+    <script>
+    const date = document.getElementById('date');
+    const now = new Date();
+    const options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+    date.textContent = now.toLocaleDateString('en-ID', options);
+    </script>
+    <script>
+    function displayTime() {
+      var currentDate = new Date();
+      var hours = currentDate.getHours();
+      var minutes = currentDate.getMinutes();
+      var seconds = currentDate.getSeconds();
+      hours = hours < 10 ? "0" + hours : hours;
+      minutes = minutes < 10 ? "0" + minutes : minutes;
+      seconds = seconds < 10 ? "0" + seconds : seconds;
+      var timeString = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("time").innerHTML = timeString;
+    }
+    setInterval(displayTime, 1000);
     </script>
     <script>
     $(window).load(function () {
