@@ -638,12 +638,12 @@ footer {
                     if (Object.hasOwn(data, 'errors')) {
                         status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
                     } else {
-                        status.innerHTML = "❌ Error tidak dapat dikirim"
+                        status.innerHTML = "❌ Error, pesan anda tidak dapat dikirim"
                     }
                 })
                 }
             }).catch(error => {
-                status.innerHTML = "❌ Error tidak dapat dikirim"
+                status.innerHTML = "❌ Error, pesan anda tidak dapat dikirim"
             });
         }
         form.addEventListener("submit", handleSubmit)
