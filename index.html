@@ -18,6 +18,8 @@
     <meta name="p:domain_verify" content="0650a95068ae0f0dc03ab1a8d566ba53"/>
     <link rel="preload" href="bootstrap.min.css" as="style" media="print" onload="this.media='all'" priority="high"/>
     <link rel="preload" href="icon/remixicon.css" as="style" media="print" onload="this.media='all'" priority="high"/>
+    <link rel="preload" href="script.js" as="script" priority="high"/>
+    <link rel="preload" href="custom.js" as="script" priority="high"/>
 <style>
 @import 'https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i|Playfair+Display:400,400i,700,700i,900,900i';
 
@@ -615,77 +617,6 @@ footer {
               </div>
           </div>
       </div>
-    <footer><a href="https://www.rifki.xyz/"><p align="center" style="color: #000000;"><span id="time"></span>‎ ‎ - ‎ ‎<span id="date"></span></p></a></footer>
-<script src="script.js"></script>
-    <script>
-    var form = document.getElementById("ajax-form");
-    async function handleSubmit(event) {
-        event.preventDefault();
-        var status = document.getElementById("ajax-form-status");
-        var data = new FormData(event.target);
-        fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                status.innerHTML = "✅ Pesan anda berhasil dikirim";
-                form.reset()
-            } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                    } else {
-                        status.innerHTML = "❌ Error, pesan anda tidak dapat dikirim"
-                    }
-                })
-                }
-            }).catch(error => {
-                status.innerHTML = "❌ Error, pesan anda tidak dapat dikirim"
-            });
-        }
-        form.addEventListener("submit", handleSubmit)
-    </script>
-    <script>
-    const date = document.getElementById('date');
-    const now = new Date();
-    const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-    };
-    date.textContent = now.toLocaleDateString('id-ID', options);
-    </script>
-    <script>
-    function displayTime() {
-      var currentDate = new Date();
-      var hours = currentDate.getHours();
-      var minutes = currentDate.getMinutes();
-      var seconds = currentDate.getSeconds();
-      hours = hours < 10 ? "0" + hours : hours;
-      minutes = minutes < 10 ? "0" + minutes : minutes;
-      seconds = seconds < 10 ? "0" + seconds : seconds;
-      var timeString = hours + ":" + minutes + ":" + seconds;
-      document.getElementById("time").innerHTML = timeString;
-    }
-    setInterval(displayTime, 1000);
-    </script>
-    <script>
-    $(window).load(function () {
-    "use strict";
-        $('#status').fadeOut();
-        $('#preloader').delay(350).fadeOut('slow');
-        $('body').delay(350).css({
-            'overflow': 'auto'
-        });
-    })
-    </script>
-    <script>
-    $(window).on("load", function() {
-        document.body.classList.remove('no-scroll');
-    });
-    </script>
+<footer><a href="https://www.rifki.xyz/"><p align="center" style="color: #000000;"><span id="time"></span>‎ ‎ - ‎ ‎<span id="date"></span></p></a></footer>
 </body>
 </html>
