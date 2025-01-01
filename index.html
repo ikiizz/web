@@ -380,6 +380,95 @@ fieldset {
 .no-scroll {
     overflow: hidden;
 }
+.wrapper{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  animation: show_toast 1s ease forwards;
+}
+@keyframes show_toast {
+  0%{
+    transform: translateX(-100%);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    transform: translateX(20px);
+  }
+}
+.wrapper.hide{
+  animation: hide_toast 1s ease forwards;
+}
+@keyframes hide_toast {
+  0%{
+    transform: translateX(20px);
+  }
+  40%{
+    transform: translateX(10%);
+  }
+  80%, 100%{
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+}
+.wrapper .toast{
+  background: #fff;
+  padding: 20px 15px 20px 20px;
+  border-radius: 10px;
+  border-left: 5px solid #2ecc71;
+  box-shadow: 1px 7px 14px -5px rgba(0,0,0,0.15);
+  width: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wrapper .toast.offline{
+  border-color: #ccc;
+}
+.toast .content{
+  display: flex;
+  align-items: center;
+}
+.content .icon{
+  font-size: 25px;
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  background: #2ecc71;
+}
+.toast.offline .content .icon{
+  background: #ccc;
+}
+.content .details{
+  margin-left: 15px;
+}
+.details span{
+  font-size: 20px;
+  font-weight: 500;
+}
+.details p{
+  color: #878787;
+}
+.toast .close-icon{
+  color: #878787;
+  font-size: 23px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: all 0.3s ease;
+}
+.close-icon:hover{
+  background: #efefef;
+}
 footer {
     font-family: Lato;
     font-size: medium;
@@ -528,7 +617,7 @@ footer {
                 <h3>Nomor HP</h3>
                 <a aria-label="nomor hp" title="nomor hp" href="https://wa.me/6282121370332" target="_blank"><p style="color: black;">+62 821-2137-0332</p></a>
                 <h3>Email</h3>
-                <a aria-label="email" title="email" href="mailto:sapa@rifki.xyz"><p style="color: black;">sapa@rifki.xyz</p></a>
+                <a aria-label="email" title="email" href="mailto:sapa@mail.rifki.xyz"><p style="color: black;">sapa@rifki.xyz</p></a>
                 <h3>Media sosial</h3>
                 <ul class="social">
                     <li><a aria-label="instagram" title="instagram" href="https://instagram.com/rifkisumarna05" target="_blank"><i class="ri-instagram-line"></i></a></li>
@@ -550,6 +639,18 @@ footer {
               </div>
           </div>
       </div>
+    <div class="wrapper">
+      <div class="toast">
+        <div class="content">
+          <div class="icon"><i class="ri-wifi-line"></i></div>
+            <div class="details">
+              <span>Online</span>
+              <p>Anda terhubung ke Internet.</p>
+            </div>
+          </div>
+        <div class="close-icon"><i class="ri-close-large-line"></i></div>
+      </div>
+    </div>
 <footer><a href="https://www.rifki.xyz/"><p align="center" style="color: #000000;"><span id="time"></span>‎ ‎ - ‎ ‎<span id="date"></span></p></a></footer>
 <script src="script.js"></script>
 </body>
